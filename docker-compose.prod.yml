@@ -24,6 +24,8 @@ services:
       - "8000:8000"
     environment:
       - DEBUG=False
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY:?DJANGO_SECRET_KEY is required}
+      - DJANGO_ALLOWED_HOSTS=*
       - REDIS_URL=redis://redis:6379/0
       - DB_ENGINE=sqlite
     volumes:
@@ -45,12 +47,17 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: aitest-celery
-    command: celery -A tasks worker --loglevel=info
+    command: celery -A tasks.celery worker --loglevel=info
     environment:
       - DEBUG=False
+      - DJANGO_SECRET_KEY=${DJANGO_SECRET_KEY:?DJANGO_SECRET_KEY is required}
+      - DJANGO_ALLOWED_HOSTS=*
       - REDIS_URL=redis://redis:6379/0
+      - DB_ENGINE=sqlite
+      - DJANGO_SETTINGS_MODULE=config.settings.production
     volumes:
       - ./backend:/app
+      - ./backend/db.sqlite3:/app/db.sqlite3
       - ./backend/media:/app/media
     depends_on:
       redis:

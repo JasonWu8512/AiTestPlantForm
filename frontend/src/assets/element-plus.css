@@ -1,0 +1,154 @@
+/* Element Plus Custom Theme Overrides */
+:root {
+  --el-color-primary: #6366f1;
+  --el-color-primary-light-3: #818cf8;
+  --el-color-primary-light-5: #a5b4fc;
+  --el-color-primary-light-7: #c7d2fe;
+  --el-color-primary-light-8: #e0e7ff;
+  --el-color-primary-light-9: #eef2ff;
+  --el-color-primary-dark-2: #4f46e5;
+  --el-color-success: #22c55e;
+  --el-color-warning: #f59e0b;
+  --el-color-danger: #ef4444;
+  --el-color-info: #3b82f6;
+  --el-bg-color: #ffffff;
+  --el-bg-color-page: #f8fafc;
+  --el-bg-color-overlay: #ffffff;
+  --el-text-color-primary: #1e293b;
+  --el-text-color-regular: #475569;
+  --el-text-color-secondary: #64748b;
+  --el-text-color-placeholder: #94a3b8;
+  --el-border-color: #e2e8f0;
+  --el-border-color-light: #f1f5f9;
+  --el-border-color-lighter: #f8fafc;
+  --el-border-radius-base: 10px;
+  --el-border-radius-small: 8px;
+  --el-border-radius-round: 20px;
+  --el-border-radius-circle: 100%;
+  --el-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.04);
+  --el-box-shadow-light: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  --el-box-shadow-lighter: 0 1px 4px 0 rgba(0, 0, 0, 0.02);
+}
+
+/* Button Styles */
+.el-button--primary {
+  background: linear-gradient(135deg, var(--el-color-primary) 0%, var(--el-color-primary-light-3) 100%);
+  border: none;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  transition: all 0.2s ease;
+}
+
+.el-button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.el-button--primary:active {
+  transform: translateY(0);
+}
+
+/* Input Styles */
+.el-input__wrapper {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px var(--el-border-color) inset;
+  transition: all 0.2s ease;
+}
+
+.el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px var(--el-border-color-light) inset;
+}
+
+.el-input__wrapper.is-focus {
+  box-shadow: 0 0 0 1px var(--el-color-primary) inset, 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* Card Styles */
+.el-card {
+  border-radius: 16px;
+  border: 1px solid var(--el-border-color-light);
+}
+
+.el-card__header {
+  border-bottom: 1px solid var(--el-border-color-light);
+  padding: 20px 24px;
+}
+
+.el-card__body {
+  padding: 24px;
+}
+
+/* Dialog Styles */
+.el-dialog {
+  border-radius: 16px;
+}
+
+.el-dialog__header {
+  padding: 24px 24px 16px;
+}
+
+.el-dialog__body {
+  padding: 16px 24px;
+}
+
+.el-dialog__footer {
+  padding: 16px 24px 24px;
+}
+
+/* Table Styles */
+.el-table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.el-table th.el-table__cell {
+  background-color: #f8fafc;
+}
+
+/* Tag Styles */
+.el-tag {
+  border-radius: 8px;
+  padding: 0 12px;
+  height: 26px;
+  line-height: 24px;
+}
+
+/* Message Box Styles */
+.el-message-box {
+  border-radius: 16px;
+}
+
+/* Pagination Styles */
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background: linear-gradient(135deg, var(--el-color-primary) 0%, var(--el-color-primary-light-3) 100%);
+}
+
+/* Menu Styles */
+.el-menu {
+  border-right: none;
+}
+
+.el-menu-item:hover {
+  background-color: var(--el-bg-color-page);
+}
+
+.el-menu-item.is-active {
+  color: #ffffff;
+}
+
+/* Select Styles */
+.el-select .el-input__wrapper,
+.el-select-dropdown__item {
+  border-radius: 10px;
+}
+
+.el-select-dropdown {
+  border-radius: 12px;
+  border: 1px solid var(--el-border-color-light);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Form Styles */
+.el-form-item__label {
+  color: var(--el-text-color-primary);
+  font-weight: 500;
+}

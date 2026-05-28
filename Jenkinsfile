@@ -10,6 +10,10 @@ pipeline {
         COMPOSE_FILE = "docker-compose.prod.yml"
     }
 
+    tools {
+        nodejs 'node20'
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -26,7 +30,7 @@ pipeline {
                     echo "=== 运行后端测试 ==="
                     dir('backend') {
                         sh 'pip install -r requirements.txt'
-                        sh 'python manage.py test apps.users.tests apps.projects.tests apps.testcases.tests --verbosity=2'
+                        sh 'python manage.py test apps.users.tests apps.projects.tests apps.testcases.tests apps.executions.tests apps.reports.tests --verbosity=2'
                     }
                 }
             }
@@ -133,7 +137,7 @@ pipeline {
                 script {
                     echo "=== 部署后检查 ==="
                     sh 'sleep 30'
-                    sh 'docker-compose -f ${COMPOSE_FILE} ps'
+                    sh "docker-compose -f ${COMPOSE_FILE} ps"
                 }
             }
         }
@@ -142,11 +146,9 @@ pipeline {
     post {
         success {
             echo "=== 流水线执行成功 ==="
-            slackSend channel: '#devops', message: "✅ 构建成功: ${env.JOB_NAME} - ${env.BUILD_NUMBER}\n分支: ${env.BRANCH_NAME}\n链接: ${env.BUILD_URL}"
         }
         failure {
             echo "=== 流水线执行失败 ==="
-            slackSend channel: '#devops', message: "❌ 构建失败: ${env.JOB_NAME} - ${env.BUILD_NUMBER}\n分支: ${env.BRANCH_NAME}\n链接: ${env.BUILD_URL}"
         }
         cleanup {
             echo "=== 清理工作空间 ==="

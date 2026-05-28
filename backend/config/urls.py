@@ -13,6 +13,7 @@ from apps.testcases.views import TestCaseViewSet
 from apps.testplans.views import TestPlanViewSet
 from apps.users.views import UserViewSet
 from apps.apitests.views import ApiTestCaseViewSet, ApiTestExecutionViewSet
+from apps.uitests.views import UITestCaseViewSet, UITestExecutionViewSet
 
 
 router = DefaultRouter()
@@ -24,6 +25,8 @@ router.register("reports", TestReportViewSet, basename="reports")
 router.register("users", UserViewSet, basename="users")
 router.register("api-tests", ApiTestCaseViewSet, basename="api-tests")
 router.register("api-test-executions", ApiTestExecutionViewSet, basename="api-test-executions")
+router.register("ui-tests", UITestCaseViewSet, basename="ui-tests")
+router.register("ui-test-executions", UITestExecutionViewSet, basename="ui-test-executions")
 
 
 urlpatterns = [
