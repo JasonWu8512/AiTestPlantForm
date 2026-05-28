@@ -10,6 +10,7 @@ import ReportsView from "../views/reports/ReportsView.vue";
 import TestCasesView from "../views/testcases/TestCasesView.vue";
 import TestPlansView from "../views/testplans/TestPlansView.vue";
 import UsersView from "../views/users/UsersView.vue";
+import ApiTestsView from "../views/apitests/ApiTestsView.vue";
 import { useAuthStore } from "../stores/auth";
 
 
@@ -58,6 +59,11 @@ const routes = [
         path: "reports",
         name: "reports",
         component: ReportsView
+      },
+      {
+        path: "api-tests",
+        name: "api-tests",
+        component: ApiTestsView
       },
       {
         path: "notifications",

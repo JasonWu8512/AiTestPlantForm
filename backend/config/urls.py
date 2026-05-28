@@ -12,6 +12,7 @@ from apps.reports.views_allure import AllureReportView
 from apps.testcases.views import TestCaseViewSet
 from apps.testplans.views import TestPlanViewSet
 from apps.users.views import UserViewSet
+from apps.apitests.views import ApiTestCaseViewSet, ApiTestExecutionViewSet
 
 
 router = DefaultRouter()
@@ -21,6 +22,8 @@ router.register("testplans", TestPlanViewSet, basename="testplans")
 router.register("executions", TestExecutionViewSet, basename="executions")
 router.register("reports", TestReportViewSet, basename="reports")
 router.register("users", UserViewSet, basename="users")
+router.register("api-tests", ApiTestCaseViewSet, basename="api-tests")
+router.register("api-test-executions", ApiTestExecutionViewSet, basename="api-test-executions")
 
 
 urlpatterns = [

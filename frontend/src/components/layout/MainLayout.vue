@@ -31,6 +31,10 @@
           <el-icon><TrendCharts /></el-icon>
           <span>测试报告</span>
         </el-menu-item>
+        <el-menu-item index="/api-tests">
+          <el-icon><Connection /></el-icon>
+          <span>接口测试</span>
+        </el-menu-item>
         <el-menu-item index="/notifications">
           <el-icon><Bell /></el-icon>
           <span>通知配置</span>
@@ -52,7 +56,7 @@
 <script setup>
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
-import { Bell, DataBoard, DocumentChecked, Folder, Tickets, TrendCharts, User, VideoPlay } from "@element-plus/icons-vue";
+import { Bell, Connection, DataBoard, DocumentChecked, Folder, Tickets, TrendCharts, User, VideoPlay } from "@element-plus/icons-vue";
 
 import { useAuthStore } from "../../stores/auth";
 
