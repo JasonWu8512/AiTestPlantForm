@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allure 测试报告 - 执行 #{{ execution_id }}</title>
+    <link rel="stylesheet" href="{% static 'reports/css/allure_report.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Allure 测试报告</h1>
+            <p class="execution-id">执行 #{{ execution_id }}</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">{{ total }}</div>
+                    <div class="stat-label">总用例数</div>
+                </div>
+                <div class="stat passed">
+                    <div class="stat-value">{{ passed }}</div>
+                    <div class="stat-label">通过</div>
+                </div>
+                <div class="stat failed">
+                    <div class="stat-value">{{ failed }}</div>
+                    <div class="stat-label">失败</div>
+                </div>
+                <div class="stat blocked">
+                    <div class="stat-value">{{ blocked }}</div>
+                    <div class="stat-label">阻塞</div>
+                </div>
+                <div class="stat skipped">
+                    <div class="stat-value">{{ skipped }}</div>
+                    <div class="stat-label">跳过</div>
+                </div>
+                <div class="stat passed">
+                    <div class="stat-value">{{ pass_rate }}%</div>
+                    <div class="stat-label">通过率</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="report-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="status-column">状态</th>
+                        <th>测试用例</th>
+                        <th>详情</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr>
+                        <td><span class="badge bg-{{ result.status_class }}">{{ result.status|upper }}</span></td>
+                        <td>{{ result.test_name }}</td>
+                        <td>{{ result.message }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="3" class="empty-message">暂无测试结果</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

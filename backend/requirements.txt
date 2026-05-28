@@ -1,0 +1,15 @@
+Django==4.2.16
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.3.1
+django-cors-headers==4.4.0
+drf-spectacular==0.27.2
+celery==5.4.0
+redis==5.0.8
+PyMySQL==1.1.1
+python-dotenv==1.0.1
+allure-pytest==2.13.5
+pytest==8.3.3
+pytest-django==4.9.0
+openpyxl==3.1.5
+prompt-toolkit>=3.0.36
+requests==2.31.0
